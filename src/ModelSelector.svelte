@@ -265,25 +265,25 @@
 				/>
 				<ul class="flex max-h-[300px] w-64 flex-col bg-white rounded-lg shadow-lg border border-gray-100">
 					{#each filteredModels as model, i}
-					        <li class="border-b border-gray-100 last:border-b-0">
+					        <li class="border-b border-gray-200 last:border-b-0">
 					            <button
-					                class="menu-item flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+					                class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300"
 					                on:click={() => {
 					                    dispatch('change', model);
 					                    open = false;
 					                    query = '';
 					                }}
 					            >
-					                <div class="flex items-center gap-3 flex-grow">
-					                    <CompanyLogo {model} class="h-5 w-5" />
-					                    <span class="text-gray-800 text-sm font-medium">{formatModelName(model)}</span>
+					                <div class="flex items-center gap-2 flex-grow">
+					                    <CompanyLogo {model} class="h-4 w-4" />
+					                    <span class="text-gray-700 text-sm">{formatModelName(model)}</span>
 					                </div>
 					                <div class="flex items-center gap-2">
 					                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-500" />
+					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-600" />
 					                    {/if}
 					                    {#if model.modality === 'image-generation'}
-					                        <Icon icon={feImage} class="h-4 w-4 text-blue-500" />
+					                        <Icon icon={feImage} class="h-4 w-4 text-blue-600" />
 					                    {/if}
 					                </div>
 					            </button>
