@@ -4,9 +4,9 @@ import { persisted } from './localstorage.js';
 export const controller = writable(null);
 
 export const params = persisted('params', {
-	temperature: 0.3,
+	temperature: 1,
 	maxTokens: 0,
-	messagesContextLimit: 0,
+	messagesContextLimit: 2,
 });
 
 export const config = persisted('config', {
