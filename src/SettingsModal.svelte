@@ -7,6 +7,7 @@
 		mistralAPIKey,
 		openaiAPIKey,
 		openrouterAPIKey,
+		deepseekAPIKey,
 		params,
 		remoteServer,
 		toolSchema,
@@ -33,7 +34,7 @@
 	export let trigger = '';
 
 	let activeTab =
-		$openaiAPIKey === '' && $groqAPIKey === '' && $openrouterAPIKey === '' ? 'api-keys' : 'tools';
+		$openaiAPIKey === '' && $groqAPIKey === '' && $openrouterAPIKey === '' && $deepseekAPIKey==='' ? 'api-keys' : 'tools';
 
 	let addClientToolOpen = false;
 	let loadClientTool = null;
