@@ -39,6 +39,17 @@
 	let inputEl;
 	let innerWidth;
 </script>
+<style>
+  .menu-item {
+    transition: all 0.3s ease;
+    transform: perspective(1000px) rotateX(0) translateZ(0);
+  }
+  .menu-item:hover {
+    transform: perspective(1000px) rotateX(5deg) translateZ(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 
 <svelte:window
 	bind:innerWidth
@@ -240,7 +251,7 @@
 					{#each filteredModels as model, i}
 					        <li class="border-b border-gray-200 last:border-b-0">
 					            <button
-					                class="flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
+					                class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300"
 					                on:click={() => {
 					                    dispatch('change', model);
 					                    open = false;
