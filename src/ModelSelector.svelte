@@ -251,7 +251,7 @@
 					{#each filteredModels as model, i}
 						<li class="border-b border-gray-200 last:border-b-0">
 						    <button
-						        class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-white focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gradient-to-r from-gray-100 to-white"
+						        class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-white focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gradient-to-r from-gray-100 to-white"
 						        on:click={() => {
 						            dispatch('change', model);
 						            open = false;
@@ -260,7 +260,7 @@
 						    >
 						        <div class="flex items-center gap-2 flex-grow">
 						            <CompanyLogo {model} class="h-4 w-4" />
-						            <span class="text-gray-700 text-sm">{formatModelName(model)}</span>
+						            <span class="text-gray-700 text-xs">{formatModelName(model)}</span>
 						        </div>
 						        <div class="flex items-center gap-2">
 						            {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
