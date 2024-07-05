@@ -34,7 +34,7 @@
 	export let trigger = '';
 
 	let activeTab =
-		$openaiAPIKey === '' && $groqAPIKey === '' && $openrouterAPIKey === '' && $deepseekAPIKey==='' ? 'api-keys' : 'tools';
+		$openaiAPIKey === '' && $groqAPIKey === '' && $openrouterAPIKey === '' ? 'api-keys' : 'tools';
 
 	let addClientToolOpen = false;
 	let loadClientTool = null;
@@ -148,7 +148,7 @@
 						placeholder="Enter your API key"
 						class="rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-800 transition-colors placeholder:text-gray-500 focus:border-slate-400 focus:outline-none"
 						on:change={() => {
-							if ($deepseekAPIKey.length === 56 || $deepseekAPIKey.length === 0) {
+							if ($deepseekAPIKey.length === 35 || $deepseekAPIKey.length === 0) {
 								dispatch('fetchModels');
 							}
 						}}
