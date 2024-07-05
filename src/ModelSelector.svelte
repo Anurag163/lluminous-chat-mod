@@ -236,27 +236,33 @@
 						}
 					}}
 				/>
-				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none bg-white rounded-md shadow-lg">
+				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg border border-gray-200">
 					{#each filteredModels as model, i}
-					        <li class="border-b border-gray-100 last:border-b-0">
+					        <li class="border-b border-gray-200 last:border-b-0">
 					            <button
-					                class="flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+					                class="flex w-full items-center gap-3 px-5 py-4 text-left text-sm transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-100 hover:to-purple-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
 					                on:click={() => {
 					                    dispatch('change', model);
 					                    open = false;
 					                    query = '';
 					                }}
 					            >
-					                <div class="flex items-center gap-2 flex-grow">
-					                    <CompanyLogo {model} class="h-5 w-5" />
-					                    <span class="font-medium text-gray-800">{formatModelName(model)}</span>
+					                <div class="flex items-center gap-3 flex-grow">
+					                    <div class="bg-white p-1 rounded-full shadow-sm">
+					                        <CompanyLogo {model} class="h-6 w-6" />
+					                    </div>
+					                    <span class="font-semibold text-gray-800 text-base">{formatModelName(model)}</span>
 					                </div>
-					                <div class="flex items-center gap-2">
+					                <div class="flex items-center gap-3">
 					                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-500" />
+					                        <div class="bg-green-100 p-1 rounded-full">
+					                            <Icon icon={feCheckCircle} class="h-5 w-5 text-green-600" />
+					                        </div>
 					                    {/if}
 					                    {#if model.modality === 'image-generation'}
-					                        <Icon icon={feImage} class="h-4 w-4 text-blue-500" />
+					                        <div class="bg-blue-100 p-1 rounded-full">
+					                            <Icon icon={feImage} class="h-5 w-5 text-blue-600" />
+					                        </div>
 					                    {/if}
 					                </div>
 					            </button>
