@@ -236,27 +236,31 @@
 						}
 					}}
 				/>
-				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none">
+				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none bg-white rounded-md shadow-lg">
 					{#each filteredModels as model, i}
-						<li>
-							<button
-								class="flex w-full items-center gap-2 whitespace-nowrap px-3 py-2 text-left text-xs transition-colors hover:bg-gray-100"
-								on:click={() => {
-									dispatch('change', model);
-									open = false;
-									query = '';
-								}}
-							>
-								{#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-									<Icon icon={feCheckCircle} class="h-3 text-slate-800" />
-								{/if}
-								<CompanyLogo {model} />
-								{formatModelName(model)}
-								{#if model.modality === 'image-generation'}
-									<Icon icon={feImage} class="mt-px h-3 w-3 text-slate-800" />
-								{/if}
-							</button>
-						</li>
+					        <li class="border-b border-gray-100 last:border-b-0">
+					            <button
+					                class="flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+					                on:click={() => {
+					                    dispatch('change', model);
+					                    open = false;
+					                    query = '';
+					                }}
+					            >
+					                <div class="flex items-center gap-2 flex-grow">
+					                    <CompanyLogo {model} class="h-5 w-5" />
+					                    <span class="font-medium text-gray-800">{formatModelName(model)}</span>
+					                </div>
+					                <div class="flex items-center gap-2">
+					                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
+					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-500" />
+					                    {/if}
+					                    {#if model.modality === 'image-generation'}
+					                        <Icon icon={feImage} class="h-4 w-4 text-blue-500" />
+					                    {/if}
+					                </div>
+					            </button>
+					        </li>
 					{:else}
 						<div class="px-4 py-2.5 text-sm">No results.</div>
 					{/each}
