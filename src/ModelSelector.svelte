@@ -43,12 +43,13 @@
   .menu-item {
     transition: all 0.3s ease;
     transform: perspective(1000px) rotateX(0) translateZ(0);
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
   }
   .menu-item:hover {
     transform: perspective(1000px) rotateX(5deg) translateZ(5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to right, #ffffff, #f1f3f5);
   }
-
   .custom-scrollbar {
     overflow-y: auto;
     overflow-x: hidden;
@@ -57,9 +58,12 @@
     width: 6px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-	}
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
 </style>
 
 
@@ -259,27 +263,27 @@
 						}
 					}}
 				/>
-				<ul class="flex max-h-[300px] w-full flex-col overflow-y-auto scrollbar-none bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg border border-gray-200">
+				<ul class="flex max-h-[300px] w-64 flex-col bg-white rounded-lg shadow-lg border border-gray-100">
 					{#each filteredModels as model, i}
-					        <li class="border-b border-gray-200 last:border-b-0">
+					        <li class="border-b border-gray-100 last:border-b-0">
 					            <button
-					                class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-300"
+					                class="menu-item flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
 					                on:click={() => {
 					                    dispatch('change', model);
 					                    open = false;
 					                    query = '';
 					                }}
 					            >
-					                <div class="flex items-center gap-2 flex-grow">
-					                    <CompanyLogo {model} class="h-4 w-4" />
-					                    <span class="text-gray-700 text-sm">{formatModelName(model)}</span>
+					                <div class="flex items-center gap-3 flex-grow">
+					                    <CompanyLogo {model} class="h-5 w-5" />
+					                    <span class="text-gray-800 text-sm font-medium">{formatModelName(model)}</span>
 					                </div>
 					                <div class="flex items-center gap-2">
 					                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-600" />
+					                        <Icon icon={feCheckCircle} class="h-4 w-4 text-green-500" />
 					                    {/if}
 					                    {#if model.modality === 'image-generation'}
-					                        <Icon icon={feImage} class="h-4 w-4 text-blue-600" />
+					                        <Icon icon={feImage} class="h-4 w-4 text-blue-500" />
 					                    {/if}
 					                </div>
 					            </button>
