@@ -29,6 +29,7 @@
 		openaiAPIKey,
 		groqAPIKey,
 		openrouterAPIKey,
+		deepseekAPIKey,
 		config,
 		params,
 		toolSchema,
