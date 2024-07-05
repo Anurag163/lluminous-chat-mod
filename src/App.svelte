@@ -1082,6 +1082,8 @@
 				},
 				{ fromProvider: 'Mistral' },
 				{ startsWith: ['mistralai/', 'cohere/', 'nous'] },
+				{fromProvider:'Deepseek'},
+				{ startsWith: ['deepseek/']}
 			];
 
 			function getPriorityIndex(model) {
