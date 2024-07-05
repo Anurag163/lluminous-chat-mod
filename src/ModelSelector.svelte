@@ -248,21 +248,15 @@
 					                }}
 					            >
 					                <div class="flex items-center gap-3 flex-grow">
-					                    <div class="bg-white p-1 rounded-full shadow-sm">
-					                        <CompanyLogo {model} class="h-6 w-6" />
-					                    </div>
-					                    <span class="font-semibold text-gray-800 text-base">{formatModelName(model)}</span>
+					                    <CompanyLogo {model} class="h-5 w-5" />
+					                    <span class="text-gray-700 text-base font-normal">{formatModelName(model)}</span>
 					                </div>
 					                <div class="flex items-center gap-3">
 					                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-					                        <div class="bg-green-100 p-1 rounded-full">
-					                            <Icon icon={feCheckCircle} class="h-5 w-5 text-green-600" />
-					                        </div>
+					                        <Icon icon={feCheckCircle} class="h-5 w-5 text-green-600" />
 					                    {/if}
 					                    {#if model.modality === 'image-generation'}
-					                        <div class="bg-blue-100 p-1 rounded-full">
-					                            <Icon icon={feImage} class="h-5 w-5 text-blue-600" />
-					                        </div>
+					                        <Icon icon={feImage} class="h-5 w-5 text-blue-600" />
 					                    {/if}
 					                </div>
 					            </button>
