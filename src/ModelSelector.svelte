@@ -48,6 +48,17 @@
     transform: perspective(1000px) rotateX(5deg) translateZ(5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .custom-scrollbar {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
 </style>
 
 
@@ -247,7 +258,7 @@
 						}
 					}}
 				/>
-				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg border border-gray-200">
+				<ul class="flex max-h-[300px] w-full flex-col overflow-y-auto scrollbar-none bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg border border-gray-200">
 					{#each filteredModels as model, i}
 					        <li class="border-b border-gray-200 last:border-b-0">
 					            <button
