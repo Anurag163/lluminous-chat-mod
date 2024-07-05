@@ -141,6 +141,21 @@
 					/></label
 				>
 				<label class="flex flex-col text-[10px] uppercase tracking-wide">
+					<span class="mb-2 ml-[3px]">DeepSeek API Key</span>
+					<input
+						type="text"
+						bind:value={$deepseekAPIKey}
+						placeholder="Enter your API key"
+						class="rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-800 transition-colors placeholder:text-gray-500 focus:border-slate-400 focus:outline-none"
+						on:change={() => {
+							if ($deepseekAPIKey.length === 56 || $deepseekAPIKey.length === 0) {
+								dispatch('fetchModels');
+							}
+						}}
+					/></label
+				>
+
+				<label class="flex flex-col text-[10px] uppercase tracking-wide">
 					<span class="mb-2 ml-[3px]">Mistral API Key</span>
 					<input
 						type="text"
