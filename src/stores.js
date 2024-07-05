@@ -17,6 +17,7 @@ export const openaiAPIKey = persisted('openaiAPIKey', '');
 export const openrouterAPIKey = persisted('openrouterkey', '');
 export const groqAPIKey = persisted('groqAPIKey', '');
 export const mistralAPIKey = persisted('mistralAPIKey', '');
+export const deepseekAPIKey = persisted('deepseekAPIKey', '');
 
 export const remoteServer = persisted('remoteServer', { address: '', password: '' });
 export const toolSchema = persisted('toolSchemaGroups', []);
