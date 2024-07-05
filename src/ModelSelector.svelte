@@ -248,33 +248,33 @@
 					}}
 				/>
 				<ul class="flex max-h-[400px] w-full flex-col overflow-y-auto scrollbar-none bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-lg border border-gray-200">
-					{#each filteredModels as model, i}
-						<li class="border-b border-gray-200 last:border-b-0">
-						    <button
-						        class="menu-item flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-white focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gradient-to-r from-gray-100 to-white"
-						        on:click={() => {
-						            dispatch('change', model);
-						            open = false;
-						            query = '';
-						        }}
-						    >
-						        <div class="flex items-center gap-2 flex-grow">
-						            <CompanyLogo {model} class="h-4 w-4" />
-						            <span class="text-gray-700 text-xs">{formatModelName(model)}</span>
-						        </div>
-						        <div class="flex items-center gap-2">
-						            {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
-						                <Icon icon={feCheckCircle} class="h-4 w-4 text-green-600" />
-						            {/if}
-						            {#if model.modality === 'image-generation'}
-						                <Icon icon={feImage} class="h-4 w-4 text-blue-600" />
-						            {/if}
-						        </div>
-						    </button>
-						</li>
-					{:else}
-						<div class="px-4 py-2.5 text-sm">No results.</div>
-					{/each}
+				    {#each filteredModels as model, i}
+				        <li class="border-b border-gray-200 last:border-b-0">
+				            <button
+				                class="menu-item flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-white focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gradient-to-r from-gray-100 to-white"
+				                on:click={() => {
+				                    dispatch('change', model);
+				                    open = false;
+				                    query = '';
+				                }}
+				            >
+				                <div class="flex items-center gap-2 flex-grow">
+				                    <CompanyLogo {model} class="h-4 w-4 flex-shrink-0" />
+				                    <span class="text-gray-700 text-xs truncate">{formatModelName(model)}</span>
+				                </div>
+				                <div class="flex items-center gap-1 flex-shrink-0">
+				                    {#if model.provider === 'Local' && loadedModel && loadedModel.id === model.id}
+				                        <Icon icon={feCheckCircle} class="h-3 w-3 text-green-600" />
+				                    {/if}
+				                    {#if model.modality === 'image-generation'}
+				                        <Icon icon={feImage} class="h-3 w-3 text-blue-600" />
+				                    {/if}
+				                </div>
+				            </button>
+				        </li>
+				    {:else}
+				        <li class="px-3 py-1.5 text-xs text-gray-500">No results.</li>
+				    {/each}
 				</ul>
 			</div>
 		</div>
